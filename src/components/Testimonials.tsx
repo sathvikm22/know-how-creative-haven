@@ -43,10 +43,10 @@ const Testimonials = () => {
       return
     }
 
-    // Auto-scroll every 4 seconds for smoother effect
+    // Smoother auto-scroll every 3 seconds
     const interval = setInterval(() => {
       api.scrollNext()
-    }, 4000)
+    }, 3000)
 
     return () => clearInterval(interval)
   }, [api])
@@ -64,34 +64,40 @@ const Testimonials = () => {
           </p>
         </div>
 
-        <div className="relative">
-          <Carousel
-            setApi={setApi}
-            className="w-full max-w-6xl mx-auto"
-            opts={{
-              align: "start",
-              loop: true,
-              duration: 35,
-            }}
-          >
-            <CarouselContent className="-ml-2 md:-ml-4">
-              {galleryImages.map((image, index) => (
-                <CarouselItem key={index} className="pl-2 md:pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4">
-                  <div className="p-1">
-                    <div className="aspect-square overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:scale-105">
-                      <img
-                        src={image.src}
-                        alt={image.alt}
-                        className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
-                      />
+        {/* Black Rectangle Container */}
+        <div className="bg-black rounded-3xl p-8 mx-auto max-w-6xl shadow-2xl">
+          <div className="relative overflow-hidden rounded-2xl">
+            <Carousel
+              setApi={setApi}
+              className="w-full"
+              opts={{
+                align: "center",
+                loop: true,
+                duration: 25,
+                dragFree: true,
+                containScroll: "trimSnaps",
+              }}
+            >
+              <CarouselContent className="-ml-4">
+                {galleryImages.map((image, index) => (
+                  <CarouselItem key={index} className="pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4">
+                    <div className="p-2">
+                      <div className="aspect-square overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-700 transform hover:scale-105 bg-white">
+                        <img
+                          src={image.src}
+                          alt={image.alt}
+                          className="w-full h-full object-cover transition-transform duration-1000 hover:scale-110"
+                          loading="lazy"
+                        />
+                      </div>
                     </div>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="hidden md:flex" />
-            <CarouselNext className="hidden md:flex" />
-          </Carousel>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="hidden md:flex -left-4 bg-white/80 hover:bg-white border-white text-black" />
+              <CarouselNext className="hidden md:flex -right-4 bg-white/80 hover:bg-white border-white text-black" />
+            </Carousel>
+          </div>
         </div>
       </div>
     </section>
