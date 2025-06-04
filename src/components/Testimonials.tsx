@@ -1,10 +1,7 @@
-
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel"
 import { useEffect, useState } from "react"
 
@@ -43,10 +40,10 @@ const Testimonials = () => {
       return
     }
 
-    // Smoother auto-scroll every 3 seconds
+    // Much smoother auto-scroll every 2.5 seconds
     const interval = setInterval(() => {
       api.scrollNext()
-    }, 3000)
+    }, 2500)
 
     return () => clearInterval(interval)
   }, [api])
@@ -73,7 +70,7 @@ const Testimonials = () => {
               opts={{
                 align: "center",
                 loop: true,
-                duration: 25,
+                duration: 20,
                 dragFree: true,
                 containScroll: "trimSnaps",
               }}
@@ -94,8 +91,6 @@ const Testimonials = () => {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="hidden md:flex -left-4 bg-white/80 hover:bg-white border-white text-black" />
-              <CarouselNext className="hidden md:flex -right-4 bg-white/80 hover:bg-white border-white text-black" />
             </Carousel>
           </div>
         </div>
