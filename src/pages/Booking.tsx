@@ -1,7 +1,7 @@
 
 
 import { useState, useEffect } from 'react';
-import { ArrowLeft, Calendar, Clock, CreditCard, Smartphone, QrCode, Check } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, CreditCard, Smartphone, QrCode, Check, Users } from 'lucide-react';
 import Navigation from '../components/Navigation';
 
 const Booking = () => {
@@ -9,6 +9,7 @@ const Booking = () => {
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
   const [selectedPayment, setSelectedPayment] = useState('');
+  const [selectedRoom, setSelectedRoom] = useState('');
   const [participants, setParticipants] = useState(1);
   const [showConfirmation, setShowConfirmation] = useState(false);
 
@@ -20,8 +21,7 @@ const Booking = () => {
     { name: "Leather Diaries", price: 1100, duration: "3 hours" },
     { name: "Phone Cases", price: 700, duration: "1.5 hours" },
     { name: "Stuffed Toys", price: 1300, duration: "4 hours" },
-    { name: "Pottery", price: 1000, duration: "2.5 hours" },
-    { name: "Candle Making", price: 600, duration: "1.5 hours" }
+    { name: "Fridge Magnets", price: 500, duration: "1.5 hours" }
   ];
 
   const timeSlots = [
@@ -37,6 +37,33 @@ const Booking = () => {
     { id: 'googlepay', name: 'Google Pay', icon: Smartphone }
   ];
 
+  const rooms = [
+    {
+      id: 'intimate',
+      name: 'Intimate Studio',
+      capacity: '3-4 people',
+      description: 'Perfect for small groups and focused learning',
+      features: ['Cozy atmosphere', 'Personal attention', 'Quiet environment'],
+      price: 0
+    },
+    {
+      id: 'collaborative',
+      name: 'Collaborative Space',
+      capacity: '3 teams of 2-3 people',
+      description: 'Ideal for team building and group activities',
+      features: ['Team workstations', 'Interactive setup', 'Group dynamics'],
+      price: 200
+    },
+    {
+      id: 'standard',
+      name: 'Standard Workshop',
+      capacity: '3-4 people',
+      description: 'Our classic workshop experience',
+      features: ['Traditional setup', 'Standard equipment', 'Comfortable seating'],
+      price: 100
+    }
+  ];
+
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const activity = urlParams.get('activity');
@@ -46,10 +73,11 @@ const Booking = () => {
   }, []);
 
   const selectedActivityData = activities.find(a => a.name === selectedActivity);
-  const totalAmount = selectedActivityData ? selectedActivityData.price * participants : 0;
+  const selectedRoomData = rooms.find(r => r.id === selectedRoom);
+  const totalAmount = selectedActivityData ? (selectedActivityData.price * participants) + (selectedRoomData?.price || 0) : 0;
 
   const handleBooking = () => {
-    if (!selectedActivity || !selectedDate || !selectedTime || !selectedPayment) {
+    if (!selectedActivity || !selectedDate || !selectedTime || !selectedPayment || !selectedRoom) {
       alert('Please fill in all required fields');
       return;
     }
@@ -76,6 +104,7 @@ const Booking = () => {
                 <p><strong>Activity:</strong> {selectedActivity}</p>
                 <p><strong>Date:</strong> {selectedDate}</p>
                 <p><strong>Time:</strong> {selectedTime}</p>
+                <p><strong>Room:</strong> {selectedRoomData?.name}</p>
                 <p><strong>Participants:</strong> {participants}</p>
                 <p><strong>Total Amount:</strong> ₹{totalAmount}</p>
                 <p><strong>Payment Method:</strong> {paymentMethods.find(p => p.id === selectedPayment)?.name}</p>
@@ -187,10 +216,80 @@ const Booking = () => {
                 </div>
               </div>
 
-              {/* Participants */}
+              {/* Room Selection */}
               <div>
                 <h2 className="text-xl font-semibold mb-4 flex items-center">
                   <span className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 mr-3 text-sm font-bold">4</span>
+                  Select Workshop Room
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  {rooms.map((room) => (
+                    <div
+                      key={room.id}
+                      onClick={() => setSelectedRoom(room.id)}
+                      className={`relative p-6 rounded-2xl border-2 cursor-pointer transition-all hover:shadow-lg ${
+                        selectedRoom === room.id
+                          ? 'border-orange-500 bg-orange-50 shadow-lg transform scale-105'
+                          : 'border-gray-200 hover:border-orange-300 bg-white'
+                      }`}
+                    >
+                      {/* Room Visual Representation */}
+                      <div className="mb-4 h-24 bg-gradient-to-br from-blue-100 to-purple-100 rounded-lg relative overflow-hidden">
+                        {/* Tables and chairs visualization */}
+                        <div className="absolute inset-2 flex items-center justify-center">
+                          {room.id === 'collaborative' ? (
+                            <div className="grid grid-cols-2 gap-1">
+                              {[...Array(3)].map((_, i) => (
+                                <div key={i} className="flex items-center space-x-1">
+                                  <div className="w-3 h-2 bg-amber-400 rounded-sm"></div>
+                                  <div className="w-1 h-1 bg-gray-600 rounded-full"></div>
+                                  <div className="w-1 h-1 bg-gray-600 rounded-full"></div>
+                                </div>
+                              ))}
+                            </div>
+                          ) : (
+                            <div className="flex items-center space-x-1">
+                              <div className="w-4 h-3 bg-amber-400 rounded-sm"></div>
+                              <div className="grid grid-cols-2 gap-0.5">
+                                {[...Array(4)].map((_, i) => (
+                                  <div key={i} className="w-1 h-1 bg-gray-600 rounded-full"></div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                        <div className="absolute top-2 right-2">
+                          <Users className="w-4 h-4 text-blue-600" />
+                        </div>
+                      </div>
+                      
+                      <div className="text-center">
+                        <h3 className="font-bold text-gray-800 mb-1">{room.name}</h3>
+                        <p className="text-sm text-orange-600 font-medium mb-2">{room.capacity}</p>
+                        <p className="text-xs text-gray-600 mb-3">{room.description}</p>
+                        
+                        <div className="space-y-1 mb-3">
+                          {room.features.map((feature, index) => (
+                            <div key={index} className="flex items-center text-xs text-gray-500">
+                              <div className="w-1 h-1 bg-green-500 rounded-full mr-2"></div>
+                              {feature}
+                            </div>
+                          ))}
+                        </div>
+                        
+                        <div className="text-lg font-bold text-orange-600">
+                          {room.price === 0 ? 'Free' : `+₹${room.price}`}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Participants */}
+              <div>
+                <h2 className="text-xl font-semibold mb-4 flex items-center">
+                  <span className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 mr-3 text-sm font-bold">5</span>
                   Number of Participants
                 </h2>
                 <div className="flex items-center space-x-4">
@@ -213,7 +312,7 @@ const Booking = () => {
               {/* Payment Method */}
               <div>
                 <h2 className="text-xl font-semibold mb-4 flex items-center">
-                  <span className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 mr-3 text-sm font-bold">5</span>
+                  <span className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 mr-3 text-sm font-bold">6</span>
                   Payment Method
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -246,6 +345,12 @@ const Booking = () => {
                       <span>{selectedActivity} × {participants}</span>
                       <span>₹{selectedActivityData.price * participants}</span>
                     </div>
+                    {selectedRoomData && selectedRoomData.price > 0 && (
+                      <div className="flex justify-between text-gray-700">
+                        <span>{selectedRoomData.name}</span>
+                        <span>₹{selectedRoomData.price}</span>
+                      </div>
+                    )}
                     <div className="border-t border-orange-200 pt-3 flex justify-between font-bold text-xl text-gray-800">
                       <span>Total</span>
                       <span>₹{totalAmount}</span>
@@ -268,4 +373,3 @@ const Booking = () => {
 };
 
 export default Booking;
-

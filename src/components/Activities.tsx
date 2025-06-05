@@ -1,4 +1,5 @@
 
+
 import { useNavigate } from 'react-router-dom';
 
 const Activities = () => {
@@ -58,7 +59,7 @@ const Activities = () => {
       name: "Fridge Magnets",
       description: "Create colorful and fun magnets for your refrigerator",
       emoji: "🧲",
-      image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
+      image: "/lovable-uploads/6619328f-c411-46c0-b5cc-d0c0328c45bc.png",
       color: "from-purple-300 via-pink-300 to-red-300"
     }
   ];
