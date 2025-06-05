@@ -1,4 +1,5 @@
 
+
 const Location = () => {
   const handleMapClick = () => {
     // Open Google Maps directions in a new tab
@@ -34,7 +35,10 @@ const Location = () => {
               </div>
             </div>
             
-            <button className="bg-pink-500 text-white px-8 py-4 rounded-full font-medium text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:bg-pink-600">
+            <button 
+              onClick={handleMapClick}
+              className="bg-pink-500 text-white px-8 py-4 rounded-full font-medium text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:bg-pink-600"
+            >
               GET DIRECTIONS
             </button>
           </div>
@@ -71,3 +75,4 @@ const Location = () => {
 };
 
 export default Location;
+

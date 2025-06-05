@@ -1,4 +1,5 @@
 
+
 import { useNavigate } from 'react-router-dom';
 
 const Contact = () => {
@@ -39,39 +40,39 @@ const Contact = () => {
           </button>
         </div>
         
-        <div className="bg-white/20 backdrop-blur-sm rounded-3xl p-8 max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-white">
+        <div className="bg-white/20 backdrop-blur-sm rounded-3xl p-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-white">
             <div className="text-center">
-              <h3 className="font-bold mb-3 text-lg flex items-center justify-center">
-                <span className="text-2xl mr-3">📞</span>
+              <h3 className="font-bold mb-4 text-2xl flex items-center justify-center">
+                <span className="text-3xl mr-4">📞</span>
                 Ring Us Up
               </h3>
-              <p className="text-white/90 text-xl">9591032562</p>
+              <p className="text-white/90 text-2xl font-medium">9591032562</p>
             </div>
             <div className="text-center">
-              <h3 className="font-bold mb-3 text-lg flex items-center justify-center">
-                <span className="text-2xl mr-3">🏠</span>
+              <h3 className="font-bold mb-4 text-2xl flex items-center justify-center">
+                <span className="text-3xl mr-4">🏠</span>
                 Knock Us At
               </h3>
-              <p className="text-white/90 text-base leading-relaxed">
+              <p className="text-white/90 text-lg leading-relaxed">
                 No.716 17th Main, 38th Cross,<br />
                 4th T Block, Jayanagar,<br />
                 Bangalore - 560041
               </p>
             </div>
             <div className="text-center">
-              <h3 className="font-bold mb-3 text-lg flex items-center justify-center">
-                <span className="text-2xl mr-3">📧</span>
+              <h3 className="font-bold mb-4 text-2xl flex items-center justify-center">
+                <span className="text-3xl mr-4">📧</span>
                 Email Us
               </h3>
-              <p className="text-white/90 text-base">hello@knowhow.studio</p>
+              <p className="text-white/90 text-lg">hello@knowhow.studio</p>
             </div>
             <div className="text-center">
-              <h3 className="font-bold mb-3 text-lg flex items-center justify-center">
-                <span className="text-2xl mr-3">⏰</span>
+              <h3 className="font-bold mb-4 text-2xl flex items-center justify-center">
+                <span className="text-3xl mr-4">⏰</span>
                 Hours
               </h3>
-              <p className="text-white/90 text-base">Mon-Sun: 9AM - 9PM</p>
+              <p className="text-white/90 text-lg">Mon-Sun: 9AM - 9PM</p>
             </div>
           </div>
         </div>
@@ -81,3 +82,4 @@ const Contact = () => {
 };
 
 export default Contact;
+

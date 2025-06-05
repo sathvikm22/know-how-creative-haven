@@ -1,4 +1,5 @@
 
+
 import { useState, useEffect } from 'react';
 import { ArrowLeft, Calendar, Clock, CreditCard, Smartphone, QrCode, Check } from 'lucide-react';
 import Navigation from '../components/Navigation';
@@ -83,7 +84,7 @@ const Booking = () => {
             
             <div className="space-y-4">
               <button 
-                onClick={() => window.location.href = '/'}
+                onClick={() => window.location.href = '/home'}
                 className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 text-white py-3 rounded-full font-medium hover:shadow-lg transition-all duration-300"
               >
                 Back to Home
@@ -132,13 +133,13 @@ const Booking = () => {
                     <div
                       key={activity.name}
                       onClick={() => setSelectedActivity(activity.name)}
-                      className={`p-4 rounded-xl border-2 cursor-pointer transition-all ${
+                      className={`p-4 rounded-xl border-2 cursor-pointer transition-all hover:shadow-md ${
                         selectedActivity === activity.name
-                          ? 'border-orange-500 bg-orange-50'
+                          ? 'border-orange-500 bg-orange-50 shadow-md'
                           : 'border-gray-200 hover:border-orange-300'
                       }`}
                     >
-                      <h3 className="font-semibold">{activity.name}</h3>
+                      <h3 className="font-semibold text-gray-800">{activity.name}</h3>
                       <p className="text-sm text-gray-600">{activity.duration}</p>
                       <p className="text-lg font-bold text-orange-600">₹{activity.price}</p>
                     </div>
@@ -157,7 +158,8 @@ const Booking = () => {
                   value={selectedDate}
                   onChange={(e) => setSelectedDate(e.target.value)}
                   min={new Date().toISOString().split('T')[0]}
-                  className="w-full p-3 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:outline-none"
+                  className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:outline-none text-lg"
+                  placeholder="dd/mm/yyyy"
                 />
               </div>
 
@@ -172,14 +174,14 @@ const Booking = () => {
                     <button
                       key={slot}
                       onClick={() => setSelectedTime(slot)}
-                      className={`p-4 rounded-xl border-2 transition-all ${
+                      className={`p-4 rounded-xl border-2 transition-all hover:shadow-md ${
                         selectedTime === slot
-                          ? 'border-orange-500 bg-orange-50 text-orange-600'
+                          ? 'border-orange-500 bg-orange-50 text-orange-600 shadow-md'
                           : 'border-gray-200 hover:border-orange-300'
                       }`}
                     >
                       <Clock className="w-5 h-5 mx-auto mb-2" />
-                      {slot}
+                      <div className="font-medium">{slot}</div>
                     </button>
                   ))}
                 </div>
@@ -194,14 +196,14 @@ const Booking = () => {
                 <div className="flex items-center space-x-4">
                   <button
                     onClick={() => setParticipants(Math.max(1, participants - 1))}
-                    className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center font-bold hover:bg-gray-300"
+                    className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center font-bold hover:bg-gray-300 transition-colors"
                   >
                     -
                   </button>
-                  <span className="text-xl font-semibold w-8 text-center">{participants}</span>
+                  <span className="text-2xl font-semibold w-12 text-center">{participants}</span>
                   <button
                     onClick={() => setParticipants(Math.min(10, participants + 1))}
-                    className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center font-bold hover:bg-gray-300"
+                    className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center font-bold hover:bg-gray-300 transition-colors"
                   >
                     +
                   </button>
@@ -221,14 +223,14 @@ const Booking = () => {
                       <button
                         key={method.id}
                         onClick={() => setSelectedPayment(method.id)}
-                        className={`p-4 rounded-xl border-2 flex items-center space-x-3 transition-all ${
+                        className={`p-4 rounded-xl border-2 flex items-center space-x-3 transition-all hover:shadow-md ${
                           selectedPayment === method.id
-                            ? 'border-orange-500 bg-orange-50'
+                            ? 'border-orange-500 bg-orange-50 shadow-md'
                             : 'border-gray-200 hover:border-orange-300'
                         }`}
                       >
                         <IconComponent className="w-6 h-6" />
-                        <span>{method.name}</span>
+                        <span className="font-medium">{method.name}</span>
                       </button>
                     );
                   })}
@@ -237,23 +239,23 @@ const Booking = () => {
 
               {/* Summary and Book Button */}
               {selectedActivityData && (
-                <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-2xl p-6">
-                  <h3 className="text-xl font-semibold mb-4">Booking Summary</h3>
-                  <div className="space-y-2 mb-4">
-                    <div className="flex justify-between">
+                <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-2xl p-6 border border-orange-200">
+                  <h3 className="text-xl font-semibold mb-4 text-gray-800">Booking Summary</h3>
+                  <div className="space-y-2 mb-6">
+                    <div className="flex justify-between text-gray-700">
                       <span>{selectedActivity} × {participants}</span>
                       <span>₹{selectedActivityData.price * participants}</span>
                     </div>
-                    <div className="border-t pt-2 flex justify-between font-bold text-lg">
+                    <div className="border-t border-orange-200 pt-3 flex justify-between font-bold text-xl text-gray-800">
                       <span>Total</span>
                       <span>₹{totalAmount}</span>
                     </div>
                   </div>
                   <button
                     onClick={handleBooking}
-                    className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 text-white py-4 rounded-full font-semibold text-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+                    className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 text-white py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                   >
-                    Complete Booking
+                    Complete Booking - ₹{totalAmount}
                   </button>
                 </div>
               )}
@@ -266,3 +268,4 @@ const Booking = () => {
 };
 
 export default Booking;
+
