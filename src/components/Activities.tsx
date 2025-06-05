@@ -1,5 +1,3 @@
-
-
 import { useNavigate } from 'react-router-dom';
 
 const Activities = () => {
@@ -10,42 +8,42 @@ const Activities = () => {
       name: "Tufting",
       description: "Create beautiful rugs and wall hangings with our tufting guns",
       emoji: "🧵",
-      image: "https://images.unsplash.com/photo-1594736797933-d0601ba2fe65?w=400&h=300&fit=crop",
+      image: "/lovable-uploads/735e4c76-0ab7-4639-ae6d-9396664ed8d2.png",
       color: "from-pink-300 via-orange-300 to-yellow-300"
     },
     {
       name: "Jewelry Making",
       description: "Craft unique pieces from scratch with premium materials",
       emoji: "💎",
-      image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=300&fit=crop",
+      image: "/lovable-uploads/6a588c51-e84c-4b71-b88d-e7d7a9868814.png",
       color: "from-blue-300 via-purple-300 to-pink-300"
     },
     {
       name: "Block Printing",
       description: "Traditional printing techniques on fabrics and paper",
       emoji: "🎨",
-      image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=300&fit=crop",
+      image: "/lovable-uploads/6589c8aa-a30c-4b5f-be74-3e3ac3da9530.png",
       color: "from-green-300 via-teal-300 to-blue-300"
     },
     {
       name: "Eco Printing",
       description: "Natural dyeing using leaves and flowers",
       emoji: "🌿",
-      image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
+      image: "/lovable-uploads/d03a1174-802a-43e4-9803-26b46817346a.png",
       color: "from-orange-300 via-green-300 to-teal-300"
     },
     {
       name: "Leather Diaries",
       description: "Hand-bind your own leather journals and notebooks",
       emoji: "📖",
-      image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=300&fit=crop",
+      image: "/lovable-uploads/d7cfafb7-f6d1-4e5d-9531-63ee12b1e49d.png",
       color: "from-pink-300 via-red-300 to-orange-300"
     },
     {
       name: "Phone Cases",
       description: "Design and create personalized phone accessories",
       emoji: "📱",
-      image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=300&fit=crop",
+      image: "/lovable-uploads/09ae03f1-4482-4d23-90bf-660795747349.png",
       color: "from-blue-300 via-indigo-300 to-purple-300"
     },
     {
@@ -56,18 +54,11 @@ const Activities = () => {
       color: "from-green-300 via-emerald-300 to-teal-300"
     },
     {
-      name: "Pottery",
-      description: "Shape clay into beautiful functional art pieces",
-      emoji: "🏺",
-      image: "https://images.unsplash.com/photo-1578321272176-b7bbc0679853?w=400&h=300&fit=crop",
-      color: "from-orange-300 via-yellow-300 to-red-300"
-    },
-    {
-      name: "Candle Making",
-      description: "Pour and scent your own custom candles",
-      emoji: "🕯️",
-      image: "https://images.unsplash.com/photo-1572302162469-4ba513d36563?w=400&h=300&fit=crop",
-      color: "from-purple-300 via-pink-300 to-blue-300"
+      name: "Fridge Magnets",
+      description: "Create colorful and fun magnets for your refrigerator",
+      emoji: "🧲",
+      image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
+      color: "from-purple-300 via-pink-300 to-red-300"
     }
   ];
 
@@ -140,4 +131,3 @@ const Activities = () => {
 };
 
 export default Activities;
-

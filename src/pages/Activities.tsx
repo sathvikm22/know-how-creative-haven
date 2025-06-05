@@ -1,3 +1,4 @@
+
 import { ArrowLeft, Clock, Users, Star } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import Navigation from '../components/Navigation';
@@ -98,30 +99,17 @@ const Activities = () => {
       features: ["Premium fabrics", "Safety materials", "Pattern templates", "Sewing machine access"]
     },
     {
-      name: "Pottery",
-      description: "Shape clay into beautiful functional art pieces using traditional pottery techniques",
-      longDescription: "Experience the meditative art of pottery. Learn wheel throwing, hand building, and glazing techniques to create functional and decorative pieces.",
-      emoji: "🏺",
-      price: 1000,
-      duration: "2.5 hours",
-      difficulty: "Beginner",
-      maxParticipants: 10,
-      rating: 4.7,
-      color: "from-orange-300 to-red-300",
-      features: ["Professional wheels", "Quality clay", "Glazing included", "Firing service"]
-    },
-    {
-      name: "Candle Making",
-      description: "Pour and scent your own custom candles with premium waxes and fragrances",
-      longDescription: "Create beautiful scented candles using natural waxes and premium fragrances. Learn different pouring techniques and wick placement.",
-      emoji: "🕯️",
-      price: 600,
+      name: "Fridge Magnets",
+      description: "Create colorful and fun magnets for your refrigerator using various materials",
+      longDescription: "Design and craft personalized fridge magnets using clay, resin, fabric, and other creative materials. Perfect for home decoration or gifts.",
+      emoji: "🧲",
+      price: 500,
       duration: "1.5 hours",
       difficulty: "Beginner",
       maxParticipants: 15,
-      rating: 4.6,
-      color: "from-indigo-300 to-blue-300",
-      features: ["Natural waxes", "Premium scents", "Custom containers", "Multiple techniques"]
+      rating: 4.4,
+      color: "from-purple-300 to-pink-300",
+      features: ["Multiple materials", "Colorful designs", "Strong magnets", "Kid-friendly"]
     }
   ];
 
