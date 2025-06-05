@@ -1,3 +1,4 @@
+
 import { useNavigate } from 'react-router-dom';
 
 const Activities = () => {
@@ -96,12 +97,6 @@ const Activities = () => {
                   alt={activity.name}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className={`absolute inset-0 bg-gradient-to-br ${activity.color} opacity-80 group-hover:opacity-60 transition-opacity duration-300`}></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-6xl group-hover:scale-110 transition-transform duration-300 drop-shadow-lg">
-                    {activity.emoji}
-                  </div>
-                </div>
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">{activity.name}</h3>
