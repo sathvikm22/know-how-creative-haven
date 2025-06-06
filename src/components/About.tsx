@@ -14,21 +14,45 @@ const About = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="relative">
             <div className="grid grid-cols-2 gap-4">
-              <div className="bg-gradient-to-br from-pink-200 via-orange-200 to-yellow-200 rounded-3xl p-6 h-48 flex flex-col justify-center items-center text-center transform hover:scale-105 transition-transform duration-300">
-                <span className="text-4xl mb-2">🧸</span>
-                <h3 className="font-semibold text-gray-800">Stuffed Toys</h3>
+              <div className="rounded-3xl overflow-hidden h-48 transform hover:scale-105 transition-transform duration-300">
+                <img 
+                  src="/lovable-uploads/58a6ea81-e970-4f76-91c6-310e164750bb.png" 
+                  alt="Stuffed Toys"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-20 flex items-end p-4">
+                  <h3 className="font-semibold text-white text-lg">Stuffed Toys</h3>
+                </div>
               </div>
-              <div className="bg-gradient-to-br from-blue-200 via-green-200 to-teal-200 rounded-3xl p-6 h-48 flex flex-col justify-center items-center text-center transform hover:scale-105 transition-transform duration-300 mt-8">
-                <span className="text-4xl mb-2">📖</span>
-                <h3 className="font-semibold text-gray-800">Leather Diaries</h3>
+              <div className="rounded-3xl overflow-hidden h-48 transform hover:scale-105 transition-transform duration-300 mt-8 relative">
+                <img 
+                  src="/lovable-uploads/684d6c8c-1895-47c7-b7be-e2d7a44e6c96.png" 
+                  alt="Leather Diaries"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-20 flex items-end p-4">
+                  <h3 className="font-semibold text-white text-lg">Leather Diaries</h3>
+                </div>
               </div>
-              <div className="bg-gradient-to-br from-green-200 via-blue-200 to-purple-200 rounded-3xl p-6 h-48 flex flex-col justify-center items-center text-center transform hover:scale-105 transition-transform duration-300 -mt-8">
-                <span className="text-4xl mb-2">🌿</span>
-                <h3 className="font-semibold text-gray-800">Eco Printing</h3>
+              <div className="rounded-3xl overflow-hidden h-48 transform hover:scale-105 transition-transform duration-300 -mt-8 relative">
+                <img 
+                  src="/lovable-uploads/e4b0cebd-ad63-46df-ab86-93e5e7e2c162.png" 
+                  alt="Eco Printing"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-20 flex items-end p-4">
+                  <h3 className="font-semibold text-white text-lg">Eco Printing</h3>
+                </div>
               </div>
-              <div className="bg-gradient-to-br from-orange-200 via-pink-200 to-red-200 rounded-3xl p-6 h-48 flex flex-col justify-center items-center text-center transform hover:scale-105 transition-transform duration-300">
-                <span className="text-4xl mb-2">📱</span>
-                <h3 className="font-semibold text-gray-800">Phone Cases</h3>
+              <div className="rounded-3xl overflow-hidden h-48 transform hover:scale-105 transition-transform duration-300 relative">
+                <img 
+                  src="/lovable-uploads/887b2e15-4db6-4df9-abf1-52f7eb21589b.png" 
+                  alt="Phone Cases"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-20 flex items-end p-4">
+                  <h3 className="font-semibold text-white text-lg">Phone Cases</h3>
+                </div>
               </div>
             </div>
           </div>
@@ -43,14 +67,52 @@ const About = () => {
               Welcome to a world where every day matters, where creativity flows freely, and where 
               your artistic journey becomes an unforgettable experience.
             </p>
-            <div className="grid grid-cols-2 gap-8 pt-8">
-              <div className="text-center">
-                <div className="text-3xl font-bold bg-gradient-to-r from-pink-600 to-orange-600 bg-clip-text text-transparent mb-2">5,000+</div>
-                <div className="text-gray-600">Happy Creators</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent mb-2">50+</div>
-                <div className="text-gray-600">Unique Activities</div>
+            
+            {/* DIY Kits E-commerce Section */}
+            <div className="pt-8">
+              <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">Shop DIY Kits</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                  <div className="h-32 bg-gradient-to-r from-pink-300 to-orange-300"></div>
+                  <div className="p-4">
+                    <h4 className="font-semibold text-gray-800 mb-2">Beginner Kit</h4>
+                    <p className="text-sm text-gray-600 mb-3">Perfect for first-time crafters</p>
+                    <div className="flex justify-between items-center">
+                      <span className="text-lg font-bold text-orange-600">₹599</span>
+                      <button className="bg-orange-500 text-white px-3 py-1 rounded-full text-sm hover:bg-orange-600 transition-colors">
+                        Add to Cart
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                  <div className="h-32 bg-gradient-to-r from-blue-300 to-purple-300"></div>
+                  <div className="p-4">
+                    <h4 className="font-semibold text-gray-800 mb-2">Advanced Kit</h4>
+                    <p className="text-sm text-gray-600 mb-3">For experienced creators</p>
+                    <div className="flex justify-between items-center">
+                      <span className="text-lg font-bold text-orange-600">₹999</span>
+                      <button className="bg-orange-500 text-white px-3 py-1 rounded-full text-sm hover:bg-orange-600 transition-colors">
+                        Add to Cart
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                  <div className="h-32 bg-gradient-to-r from-green-300 to-teal-300"></div>
+                  <div className="p-4">
+                    <h4 className="font-semibold text-gray-800 mb-2">Premium Kit</h4>
+                    <p className="text-sm text-gray-600 mb-3">Complete professional set</p>
+                    <div className="flex justify-between items-center">
+                      <span className="text-lg font-bold text-orange-600">₹1499</span>
+                      <button className="bg-orange-500 text-white px-3 py-1 rounded-full text-sm hover:bg-orange-600 transition-colors">
+                        Add to Cart
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
