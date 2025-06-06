@@ -96,7 +96,8 @@ const Activities = () => {
       maxParticipants: 8,
       rating: 4.9,
       color: "from-rose-300 to-red-300",
-      features: ["Premium fabrics", "Safety materials", "Pattern templates", "Sewing machine access"]
+      features: ["Premium fabrics", "Safety materials", "Pattern templates", "Sewing machine access"],
+      image: "/lovable-uploads/0e6eee87-afef-4104-9ec6-b5fed2735365.png"
     },
     {
       name: "Fridge Magnets",
@@ -151,7 +152,15 @@ const Activities = () => {
                 className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
               >
                 <div className={`h-32 bg-gradient-to-r ${activity.color} flex items-center justify-center relative`}>
-                  <div className="text-4xl">{activity.emoji}</div>
+                  {activity.image ? (
+                    <img 
+                      src={activity.image} 
+                      alt={activity.name}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="text-4xl">{activity.emoji}</div>
+                  )}
                 </div>
                 
                 <div className="p-6">

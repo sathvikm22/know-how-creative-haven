@@ -1,5 +1,3 @@
-
-
 import { useNavigate } from 'react-router-dom';
 
 const Activities = () => {
@@ -52,7 +50,7 @@ const Activities = () => {
       name: "Stuffed Toys",
       description: "Sew adorable plush companions from start to finish",
       emoji: "🧸",
-      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
+      image: "/lovable-uploads/0e6eee87-afef-4104-9ec6-b5fed2735365.png",
       color: "from-green-300 via-emerald-300 to-teal-300"
     },
     {

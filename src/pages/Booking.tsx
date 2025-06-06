@@ -1,5 +1,3 @@
-
-
 import { useState, useEffect } from 'react';
 import { ArrowLeft, Calendar, Clock, CreditCard, Smartphone, QrCode, Check, Users } from 'lucide-react';
 import Navigation from '../components/Navigation';
@@ -86,21 +84,21 @@ const Booking = () => {
 
   if (showConfirmation) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-yellow-100 to-orange-100">
+      <div className="min-h-screen bg-gradient-to-b from-yellow-100 to-orange-100 dark:from-gray-900 dark:to-gray-800">
         <Navigation />
         <div className="pt-20 px-4">
-          <div className="max-w-2xl mx-auto bg-white rounded-3xl shadow-xl p-8 text-center">
+          <div className="max-w-2xl mx-auto bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 text-center">
             <div className="mb-6">
-              <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Check className="w-10 h-10 text-green-600" />
+              <div className="w-20 h-20 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Check className="w-10 h-10 text-green-600 dark:text-green-400" />
               </div>
-              <h1 className="text-3xl font-bold text-gray-800 mb-2">Booking Confirmed!</h1>
-              <p className="text-gray-600">Your creative journey awaits</p>
+              <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-2">Booking Confirmed!</h1>
+              <p className="text-gray-600 dark:text-gray-300">Your creative journey awaits</p>
             </div>
             
-            <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-2xl p-6 mb-6">
-              <h2 className="text-xl font-semibold mb-4">Booking Details</h2>
-              <div className="space-y-2 text-left">
+            <div className="bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-gray-700 dark:to-gray-600 rounded-2xl p-6 mb-6">
+              <h2 className="text-xl font-semibold mb-4 text-gray-800 dark:text-white">Booking Details</h2>
+              <div className="space-y-2 text-left text-gray-700 dark:text-gray-300">
                 <p><strong>Activity:</strong> {selectedActivity}</p>
                 <p><strong>Date:</strong> {selectedDate}</p>
                 <p><strong>Time:</strong> {selectedTime}</p>
@@ -120,7 +118,7 @@ const Booking = () => {
               </button>
               <button 
                 onClick={() => window.print()}
-                className="w-full border-2 border-orange-500 text-orange-500 py-3 rounded-full font-medium hover:bg-orange-50 transition-all duration-300"
+                className="w-full border-2 border-orange-500 text-orange-500 dark:text-orange-400 dark:border-orange-400 py-3 rounded-full font-medium hover:bg-orange-50 dark:hover:bg-gray-700 transition-all duration-300"
               >
                 Print Confirmation
               </button>
@@ -132,19 +130,19 @@ const Booking = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-yellow-100 to-orange-100">
+    <div className="min-h-screen bg-gradient-to-b from-yellow-100 to-orange-100 dark:from-gray-900 dark:to-gray-800">
       <Navigation />
       <div className="pt-20 px-4">
         <div className="max-w-4xl mx-auto">
           <button 
             onClick={() => window.history.back()}
-            className="flex items-center space-x-2 text-gray-600 hover:text-orange-600 mb-6 transition-colors"
+            className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-orange-600 dark:hover:text-orange-400 mb-6 transition-colors"
           >
             <ArrowLeft size={20} />
             <span>Back</span>
           </button>
 
-          <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
+          <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl overflow-hidden">
             <div className="bg-gradient-to-r from-yellow-500 to-orange-500 p-6">
               <h1 className="text-3xl font-bold text-white">Book Your Creative Session</h1>
               <p className="text-yellow-100 mt-2">Choose your activity and preferred time slot</p>
@@ -153,8 +151,8 @@ const Booking = () => {
             <div className="p-6 space-y-8">
               {/* Activity Selection */}
               <div>
-                <h2 className="text-xl font-semibold mb-4 flex items-center">
-                  <span className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 mr-3 text-sm font-bold">1</span>
+                <h2 className="text-xl font-semibold mb-4 flex items-center text-gray-800 dark:text-white">
+                  <span className="w-8 h-8 bg-orange-100 dark:bg-orange-900 rounded-full flex items-center justify-center text-orange-600 dark:text-orange-400 mr-3 text-sm font-bold">1</span>
                   Select Activity
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -164,13 +162,13 @@ const Booking = () => {
                       onClick={() => setSelectedActivity(activity.name)}
                       className={`p-4 rounded-xl border-2 cursor-pointer transition-all hover:shadow-md ${
                         selectedActivity === activity.name
-                          ? 'border-orange-500 bg-orange-50 shadow-md'
-                          : 'border-gray-200 hover:border-orange-300'
+                          ? 'border-orange-500 bg-orange-50 dark:bg-orange-900/30 shadow-md'
+                          : 'border-gray-200 dark:border-gray-600 hover:border-orange-300 dark:hover:border-orange-400 bg-white dark:bg-gray-700'
                       }`}
                     >
-                      <h3 className="font-semibold text-gray-800">{activity.name}</h3>
-                      <p className="text-sm text-gray-600">{activity.duration}</p>
-                      <p className="text-lg font-bold text-orange-600">₹{activity.price}</p>
+                      <h3 className="font-semibold text-gray-800 dark:text-white">{activity.name}</h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-300">{activity.duration}</p>
+                      <p className="text-lg font-bold text-orange-600 dark:text-orange-400">₹{activity.price}</p>
                     </div>
                   ))}
                 </div>
@@ -178,8 +176,8 @@ const Booking = () => {
 
               {/* Date Selection */}
               <div>
-                <h2 className="text-xl font-semibold mb-4 flex items-center">
-                  <span className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 mr-3 text-sm font-bold">2</span>
+                <h2 className="text-xl font-semibold mb-4 flex items-center text-gray-800 dark:text-white">
+                  <span className="w-8 h-8 bg-orange-100 dark:bg-orange-900 rounded-full flex items-center justify-center text-orange-600 dark:text-orange-400 mr-3 text-sm font-bold">2</span>
                   Select Date
                 </h2>
                 <input
@@ -187,15 +185,15 @@ const Booking = () => {
                   value={selectedDate}
                   onChange={(e) => setSelectedDate(e.target.value)}
                   min={new Date().toISOString().split('T')[0]}
-                  className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:outline-none text-lg"
+                  className="w-full p-4 border-2 border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-xl focus:border-orange-500 focus:outline-none text-lg"
                   placeholder="dd/mm/yyyy"
                 />
               </div>
 
               {/* Time Selection */}
               <div>
-                <h2 className="text-xl font-semibold mb-4 flex items-center">
-                  <span className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 mr-3 text-sm font-bold">3</span>
+                <h2 className="text-xl font-semibold mb-4 flex items-center text-gray-800 dark:text-white">
+                  <span className="w-8 h-8 bg-orange-100 dark:bg-orange-900 rounded-full flex items-center justify-center text-orange-600 dark:text-orange-400 mr-3 text-sm font-bold">3</span>
                   Select Time Slot
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -205,8 +203,8 @@ const Booking = () => {
                       onClick={() => setSelectedTime(slot)}
                       className={`p-4 rounded-xl border-2 transition-all hover:shadow-md ${
                         selectedTime === slot
-                          ? 'border-orange-500 bg-orange-50 text-orange-600 shadow-md'
-                          : 'border-gray-200 hover:border-orange-300'
+                          ? 'border-orange-500 bg-orange-50 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 shadow-md'
+                          : 'border-gray-200 dark:border-gray-600 hover:border-orange-300 dark:hover:border-orange-400 bg-white dark:bg-gray-700 text-gray-800 dark:text-white'
                       }`}
                     >
                       <Clock className="w-5 h-5 mx-auto mb-2" />
@@ -218,8 +216,8 @@ const Booking = () => {
 
               {/* Room Selection */}
               <div>
-                <h2 className="text-xl font-semibold mb-4 flex items-center">
-                  <span className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 mr-3 text-sm font-bold">4</span>
+                <h2 className="text-xl font-semibold mb-4 flex items-center text-gray-800 dark:text-white">
+                  <span className="w-8 h-8 bg-orange-100 dark:bg-orange-900 rounded-full flex items-center justify-center text-orange-600 dark:text-orange-400 mr-3 text-sm font-bold">4</span>
                   Select Workshop Room
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -229,55 +227,55 @@ const Booking = () => {
                       onClick={() => setSelectedRoom(room.id)}
                       className={`relative p-6 rounded-2xl border-2 cursor-pointer transition-all hover:shadow-lg ${
                         selectedRoom === room.id
-                          ? 'border-orange-500 bg-orange-50 shadow-lg transform scale-105'
-                          : 'border-gray-200 hover:border-orange-300 bg-white'
+                          ? 'border-orange-500 bg-orange-50 dark:bg-orange-900/30 shadow-lg transform scale-105'
+                          : 'border-gray-200 dark:border-gray-600 hover:border-orange-300 dark:hover:border-orange-400 bg-white dark:bg-gray-700'
                       }`}
                     >
                       {/* Room Visual Representation */}
-                      <div className="mb-4 h-24 bg-gradient-to-br from-blue-100 to-purple-100 rounded-lg relative overflow-hidden">
+                      <div className="mb-4 h-24 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 rounded-lg relative overflow-hidden">
                         {/* Tables and chairs visualization */}
                         <div className="absolute inset-2 flex items-center justify-center">
                           {room.id === 'collaborative' ? (
                             <div className="grid grid-cols-2 gap-1">
                               {[...Array(3)].map((_, i) => (
                                 <div key={i} className="flex items-center space-x-1">
-                                  <div className="w-3 h-2 bg-amber-400 rounded-sm"></div>
-                                  <div className="w-1 h-1 bg-gray-600 rounded-full"></div>
-                                  <div className="w-1 h-1 bg-gray-600 rounded-full"></div>
+                                  <div className="w-3 h-2 bg-amber-400 dark:bg-amber-500 rounded-sm"></div>
+                                  <div className="w-1 h-1 bg-gray-600 dark:bg-gray-400 rounded-full"></div>
+                                  <div className="w-1 h-1 bg-gray-600 dark:bg-gray-400 rounded-full"></div>
                                 </div>
                               ))}
                             </div>
                           ) : (
                             <div className="flex items-center space-x-1">
-                              <div className="w-4 h-3 bg-amber-400 rounded-sm"></div>
+                              <div className="w-4 h-3 bg-amber-400 dark:bg-amber-500 rounded-sm"></div>
                               <div className="grid grid-cols-2 gap-0.5">
                                 {[...Array(4)].map((_, i) => (
-                                  <div key={i} className="w-1 h-1 bg-gray-600 rounded-full"></div>
+                                  <div key={i} className="w-1 h-1 bg-gray-600 dark:bg-gray-400 rounded-full"></div>
                                 ))}
                               </div>
                             </div>
                           )}
                         </div>
                         <div className="absolute top-2 right-2">
-                          <Users className="w-4 h-4 text-blue-600" />
+                          <Users className="w-4 h-4 text-blue-600 dark:text-blue-400" />
                         </div>
                       </div>
                       
                       <div className="text-center">
-                        <h3 className="font-bold text-gray-800 mb-1">{room.name}</h3>
-                        <p className="text-sm text-orange-600 font-medium mb-2">{room.capacity}</p>
-                        <p className="text-xs text-gray-600 mb-3">{room.description}</p>
+                        <h3 className="font-bold text-gray-800 dark:text-white mb-1">{room.name}</h3>
+                        <p className="text-sm text-orange-600 dark:text-orange-400 font-medium mb-2">{room.capacity}</p>
+                        <p className="text-xs text-gray-600 dark:text-gray-300 mb-3">{room.description}</p>
                         
                         <div className="space-y-1 mb-3">
                           {room.features.map((feature, index) => (
-                            <div key={index} className="flex items-center text-xs text-gray-500">
-                              <div className="w-1 h-1 bg-green-500 rounded-full mr-2"></div>
+                            <div key={index} className="flex items-center text-xs text-gray-500 dark:text-gray-400">
+                              <div className="w-1 h-1 bg-green-500 dark:bg-green-400 rounded-full mr-2"></div>
                               {feature}
                             </div>
                           ))}
                         </div>
                         
-                        <div className="text-lg font-bold text-orange-600">
+                        <div className="text-lg font-bold text-orange-600 dark:text-orange-400">
                           {room.price === 0 ? 'Free' : `+₹${room.price}`}
                         </div>
                       </div>
@@ -288,21 +286,21 @@ const Booking = () => {
 
               {/* Participants */}
               <div>
-                <h2 className="text-xl font-semibold mb-4 flex items-center">
-                  <span className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 mr-3 text-sm font-bold">5</span>
+                <h2 className="text-xl font-semibold mb-4 flex items-center text-gray-800 dark:text-white">
+                  <span className="w-8 h-8 bg-orange-100 dark:bg-orange-900 rounded-full flex items-center justify-center text-orange-600 dark:text-orange-400 mr-3 text-sm font-bold">5</span>
                   Number of Participants
                 </h2>
                 <div className="flex items-center space-x-4">
                   <button
                     onClick={() => setParticipants(Math.max(1, participants - 1))}
-                    className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center font-bold hover:bg-gray-300 transition-colors"
+                    className="w-12 h-12 bg-gray-200 dark:bg-gray-600 rounded-full flex items-center justify-center font-bold hover:bg-gray-300 dark:hover:bg-gray-500 transition-colors text-gray-800 dark:text-white"
                   >
                     -
                   </button>
-                  <span className="text-2xl font-semibold w-12 text-center">{participants}</span>
+                  <span className="text-2xl font-semibold w-12 text-center text-gray-800 dark:text-white">{participants}</span>
                   <button
                     onClick={() => setParticipants(Math.min(10, participants + 1))}
-                    className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center font-bold hover:bg-gray-300 transition-colors"
+                    className="w-12 h-12 bg-gray-200 dark:bg-gray-600 rounded-full flex items-center justify-center font-bold hover:bg-gray-300 dark:hover:bg-gray-500 transition-colors text-gray-800 dark:text-white"
                   >
                     +
                   </button>
@@ -311,8 +309,8 @@ const Booking = () => {
 
               {/* Payment Method */}
               <div>
-                <h2 className="text-xl font-semibold mb-4 flex items-center">
-                  <span className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 mr-3 text-sm font-bold">6</span>
+                <h2 className="text-xl font-semibold mb-4 flex items-center text-gray-800 dark:text-white">
+                  <span className="w-8 h-8 bg-orange-100 dark:bg-orange-900 rounded-full flex items-center justify-center text-orange-600 dark:text-orange-400 mr-3 text-sm font-bold">6</span>
                   Payment Method
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -324,12 +322,12 @@ const Booking = () => {
                         onClick={() => setSelectedPayment(method.id)}
                         className={`p-4 rounded-xl border-2 flex items-center space-x-3 transition-all hover:shadow-md ${
                           selectedPayment === method.id
-                            ? 'border-orange-500 bg-orange-50 shadow-md'
-                            : 'border-gray-200 hover:border-orange-300'
+                            ? 'border-orange-500 bg-orange-50 dark:bg-orange-900/30 shadow-md'
+                            : 'border-gray-200 dark:border-gray-600 hover:border-orange-300 dark:hover:border-orange-400 bg-white dark:bg-gray-700'
                         }`}
                       >
-                        <IconComponent className="w-6 h-6" />
-                        <span className="font-medium">{method.name}</span>
+                        <IconComponent className="w-6 h-6 text-gray-600 dark:text-gray-300" />
+                        <span className="font-medium text-gray-800 dark:text-white">{method.name}</span>
                       </button>
                     );
                   })}
@@ -338,20 +336,20 @@ const Booking = () => {
 
               {/* Summary and Book Button */}
               {selectedActivityData && (
-                <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-2xl p-6 border border-orange-200">
-                  <h3 className="text-xl font-semibold mb-4 text-gray-800">Booking Summary</h3>
+                <div className="bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-gray-700 dark:to-gray-600 rounded-2xl p-6 border border-orange-200 dark:border-orange-600">
+                  <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-white">Booking Summary</h3>
                   <div className="space-y-2 mb-6">
-                    <div className="flex justify-between text-gray-700">
+                    <div className="flex justify-between text-gray-700 dark:text-gray-300">
                       <span>{selectedActivity} × {participants}</span>
                       <span>₹{selectedActivityData.price * participants}</span>
                     </div>
                     {selectedRoomData && selectedRoomData.price > 0 && (
-                      <div className="flex justify-between text-gray-700">
+                      <div className="flex justify-between text-gray-700 dark:text-gray-300">
                         <span>{selectedRoomData.name}</span>
                         <span>₹{selectedRoomData.price}</span>
                       </div>
                     )}
-                    <div className="border-t border-orange-200 pt-3 flex justify-between font-bold text-xl text-gray-800">
+                    <div className="border-t border-orange-200 dark:border-orange-600 pt-3 flex justify-between font-bold text-xl text-gray-800 dark:text-white">
                       <span>Total</span>
                       <span>₹{totalAmount}</span>
                     </div>
