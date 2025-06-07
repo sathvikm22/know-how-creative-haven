@@ -1,5 +1,13 @@
 
+import { useNavigate } from 'react-router-dom';
+
 const Stats = () => {
+  const navigate = useNavigate();
+
+  const handleBuyNow = (kitType: string) => {
+    navigate('/buy', { state: { kitType } });
+  };
+
   return (
     <section className="py-20 bg-gradient-to-br from-blue-100 via-green-100 to-pink-100 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -18,8 +26,11 @@ const Stats = () => {
               <p className="text-gray-600 dark:text-gray-300 mb-4">Perfect for first-time crafters with all essential materials</p>
               <div className="flex justify-between items-center">
                 <span className="text-2xl font-bold text-orange-600">₹599</span>
-                <button className="bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600 transition-colors">
-                  Add to Cart
+                <button 
+                  onClick={() => handleBuyNow('Beginner Kit')}
+                  className="bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600 transition-colors"
+                >
+                  Buy Now
                 </button>
               </div>
             </div>
@@ -32,8 +43,11 @@ const Stats = () => {
               <p className="text-gray-600 dark:text-gray-300 mb-4">For experienced creators with premium tools and materials</p>
               <div className="flex justify-between items-center">
                 <span className="text-2xl font-bold text-orange-600">₹999</span>
-                <button className="bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600 transition-colors">
-                  Add to Cart
+                <button 
+                  onClick={() => handleBuyNow('Advanced Kit')}
+                  className="bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600 transition-colors"
+                >
+                  Buy Now
                 </button>
               </div>
             </div>
@@ -46,8 +60,11 @@ const Stats = () => {
               <p className="text-gray-600 dark:text-gray-300 mb-4">Complete professional set with exclusive materials</p>
               <div className="flex justify-between items-center">
                 <span className="text-2xl font-bold text-orange-600">₹1499</span>
-                <button className="bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600 transition-colors">
-                  Add to Cart
+                <button 
+                  onClick={() => handleBuyNow('Premium Kit')}
+                  className="bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600 transition-colors"
+                >
+                  Buy Now
                 </button>
               </div>
             </div>
