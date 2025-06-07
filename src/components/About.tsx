@@ -67,54 +67,6 @@ const About = () => {
               Welcome to a world where every day matters, where creativity flows freely, and where 
               your artistic journey becomes an unforgettable experience.
             </p>
-            
-            {/* DIY Kits E-commerce Section */}
-            <div className="pt-8">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">Shop DIY Kits</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
-                  <div className="h-32 bg-gradient-to-r from-pink-300 to-orange-300"></div>
-                  <div className="p-4">
-                    <h4 className="font-semibold text-gray-800 mb-2">Beginner Kit</h4>
-                    <p className="text-sm text-gray-600 mb-3">Perfect for first-time crafters</p>
-                    <div className="flex justify-between items-center">
-                      <span className="text-lg font-bold text-orange-600">₹599</span>
-                      <button className="bg-orange-500 text-white px-3 py-1 rounded-full text-sm hover:bg-orange-600 transition-colors">
-                        Add to Cart
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
-                  <div className="h-32 bg-gradient-to-r from-blue-300 to-purple-300"></div>
-                  <div className="p-4">
-                    <h4 className="font-semibold text-gray-800 mb-2">Advanced Kit</h4>
-                    <p className="text-sm text-gray-600 mb-3">For experienced creators</p>
-                    <div className="flex justify-between items-center">
-                      <span className="text-lg font-bold text-orange-600">₹999</span>
-                      <button className="bg-orange-500 text-white px-3 py-1 rounded-full text-sm hover:bg-orange-600 transition-colors">
-                        Add to Cart
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
-                  <div className="h-32 bg-gradient-to-r from-green-300 to-teal-300"></div>
-                  <div className="p-4">
-                    <h4 className="font-semibold text-gray-800 mb-2">Premium Kit</h4>
-                    <p className="text-sm text-gray-600 mb-3">Complete professional set</p>
-                    <div className="flex justify-between items-center">
-                      <span className="text-lg font-bold text-orange-600">₹1499</span>
-                      <button className="bg-orange-500 text-white px-3 py-1 rounded-full text-sm hover:bg-orange-600 transition-colors">
-                        Add to Cart
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
